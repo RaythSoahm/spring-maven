@@ -35,6 +35,17 @@ jobs:
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
+      - name: Debug - Vérifier settings.xml
+        run: cat .github/settings.xml
+      
+      - name: Debug - Vérifier que les env vars ne sont pas vides
+        run: |
+          echo "NEXUS_USER length: ${#NEXUS_USER}"
+          echo "NEXUS_PASSWORD length: ${#NEXUS_PASSWORD}"
+        env:
+          NEXUS_USER: ${{ secrets.NEXUS_USER }}
+          NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+
       # Publish to Nexus (main only)
       - name: Publish to Nexus
         if: github.ref == 'refs/heads/master'
