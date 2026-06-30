@@ -38,7 +38,7 @@ jobs:
       # Publish to Nexus (main only)
       - name: Publish to Nexus
         if: github.ref == 'refs/heads/master'
-        run: mvn deploy -DskipTests --settings settings.xml
+        run: mvn deploy -DskipTests --settings .github/settings.xml
         env:
           NEXUS_USER: ${{ secrets.NEXUS_USER }}
           NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
