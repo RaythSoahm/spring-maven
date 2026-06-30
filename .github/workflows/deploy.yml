@@ -87,7 +87,7 @@ jobs:
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/springboot-app:latest .
 
       - name: Trivy Image Scan
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: ${{ secrets.DOCKER_USERNAME }}/springboot-app:latest
           format: table
