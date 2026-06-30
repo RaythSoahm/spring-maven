@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build, Test, Sonar & Nexus
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       # Checkout
       - name: Checkout repository
